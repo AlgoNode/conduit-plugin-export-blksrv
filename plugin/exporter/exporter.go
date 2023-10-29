@@ -62,7 +62,6 @@ func (oe *deltaExporter) Init(ctx context.Context, ip data.InitProvider, cfg plu
 	if err := cfg.UnmarshalConfig(&oe.cfg); err != nil {
 		return fmt.Errorf("unable to read configuration: %w", err)
 	}
-	oe.cfg.datadir = cfg.DataDir
 
 	if oe.ht, err = oe.blksrvInit(); err != nil {
 		return err

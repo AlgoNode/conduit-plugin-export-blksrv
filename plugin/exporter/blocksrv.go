@@ -2,6 +2,7 @@ package exporter
 
 import (
 	"bytes"
+	"encoding/base64"
 	"fmt"
 	"io"
 	"net/http"
@@ -27,10 +28,13 @@ func (oe *deltaExporter) blksrvInit() (*http.Client, error) {
 }
 
 func (oe *deltaExporter) setGenesis(g *types.Genesis) error {
-	url := fmt.Sprintf("%s/n2/conduit/genesis", oe.cfg.blocksrv)
+	url := fmt.Sprintf("%s/n2/conduit/genesis", oe.cfg.Blocksrv)
 
 	buf := msgpack.Encode(g)
-	oe.log.Infof("Updated genesis at %s to %s", url, g.Hash())
+	gh := g.Hash()
+	ghb64 := base64.StdEncoding.EncodeToString(gh[:])
+
+	oe.log.Infof("Updated genesis at %s to %s", url, ghb64)
 	req, err := http.NewRequestWithContext(oe.ctx, http.MethodPut, url, bytes.NewBuffer(buf))
 	if err != nil {
 		return err
@@ -48,7 +52,7 @@ func (oe *deltaExporter) export(exportData data.BlockData) error {
 	round := exportData.BlockHeader.Round
 	buf := msgpack.Encode(exportData)
 
-	url := fmt.Sprintf("%s/n2/conduit/blockdata/%d", oe.cfg.blocksrv, int(round))
+	url := fmt.Sprintf("%s/n2/conduit/blockdata/%d", oe.cfg.Blocksrv, int(round))
 
 	req, err := http.NewRequestWithContext(oe.ctx, http.MethodPut, url, bytes.NewBuffer(buf))
 	if err != nil {

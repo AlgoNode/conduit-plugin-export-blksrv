@@ -1,6 +1,5 @@
 package exporter
 
 type Config struct {
-	datadir  string
-	blocksrv string
+	Blocksrv string `yaml:"blocksrv"`
 }
