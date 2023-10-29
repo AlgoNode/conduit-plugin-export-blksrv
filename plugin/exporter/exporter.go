@@ -68,6 +68,8 @@ func (oe *deltaExporter) Init(ctx context.Context, ip data.InitProvider, cfg plu
 		return err
 	}
 
+	oe.setGenesis(ip.GetGenesis())
+
 	return nil
 }
 
