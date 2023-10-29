@@ -1,0 +1,3 @@
+name: delta_exporter
+config:
+    blocksrv: http://localhost:3000
