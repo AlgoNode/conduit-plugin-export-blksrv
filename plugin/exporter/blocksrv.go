@@ -72,7 +72,6 @@ func (oe *deltaExporter) export(exportData data.BlockData) error {
 		oe.log.WithField("round", strconv.Itoa(int(round))).Errorf("Block %dB exported with code %d, err:%s", len(buf), resp.StatusCode, r)
 		return fmt.Errorf("block not exported")
 	}
-	resp.Body.Close()
 	oe.log.WithField("round", strconv.Itoa(int(round))).Infof("Block %dB exported with code %d", len(buf), resp.StatusCode)
 	return nil
 }
