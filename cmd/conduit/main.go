@@ -4,8 +4,11 @@ import (
 	"fmt"
 	"os"
 
-	// Imports for built-in plugins
-	_ "github.com/algorand/conduit/conduit/plugins/exporters/all"
+	// Imports for built-in plugins.
+	// Exporters are imported individually instead of via exporters/all to
+	// avoid the postgresql exporter's unfixed pgx/v4 vulnerability chain.
+	_ "github.com/algorand/conduit/conduit/plugins/exporters/filewriter"
+	_ "github.com/algorand/conduit/conduit/plugins/exporters/noop"
 	_ "github.com/algorand/conduit/conduit/plugins/importers/all"
 	_ "github.com/algorand/conduit/conduit/plugins/processors/all"
 
