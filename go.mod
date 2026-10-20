@@ -6,7 +6,7 @@ toolchain go1.25.12
 
 require (
 	github.com/algorand/conduit v1.10.0
-	github.com/algorand/go-algorand-sdk/v2 v2.11.2-0.20260811174236-f72f615ab65e
+	github.com/algorand/go-algorand-sdk/v2 v2.14.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.8.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0
