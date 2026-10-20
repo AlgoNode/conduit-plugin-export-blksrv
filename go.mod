@@ -5,8 +5,8 @@ go 1.25.0
 toolchain go1.25.12
 
 require (
-	github.com/algorand/conduit v1.10.0-rc1
-	github.com/algorand/go-algorand-sdk/v2 v2.11.2-0.20260730212803-2b779fd6c4c3
+	github.com/algorand/conduit v1.10.0
+	github.com/algorand/go-algorand-sdk/v2 v2.11.2-0.20260811174236-f72f615ab65e
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.8.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0
@@ -14,7 +14,7 @@ require (
 
 require (
 	github.com/algorand/go-codec/codec v1.1.10 // indirect
-	github.com/algorand/indexer/v3 v3.10.0-rc2 // indirect
+	github.com/algorand/indexer/v3 v3.10.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
